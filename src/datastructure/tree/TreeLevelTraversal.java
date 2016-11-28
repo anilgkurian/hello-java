@@ -39,9 +39,10 @@ public class TreeLevelTraversal {
 
 	public static void main(String args[]) {
 		TreeNode tree = TreeSamples.getBinaryTree();
-
 		TreeLevelTraversal ob = new TreeLevelTraversal();
-		System.out.println("Level order traversal of binary tree is ");
+		ob.printLevelOrder(tree);
+		
+		tree = TreeSamples.getSimpleBinaryTree();
 		ob.printLevelOrder(tree);
 	}
 }

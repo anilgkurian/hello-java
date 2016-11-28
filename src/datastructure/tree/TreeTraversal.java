@@ -7,12 +7,13 @@ public class TreeTraversal {
 		TreeNode tree = TreeSamples.getBinaryTree();
 
 		TreeTraversal ob = new TreeTraversal();
+		System.out.print("\nPost \t");
 		ob.printPostorder(tree);
 		
-		System.out.println();
+		System.out.print("\nIn \t");
 		ob.printInorder(tree);
 		
-		System.out.println();
+		System.out.print("\nPre \t");
 		ob.printPreorder(tree);
 	}
 
