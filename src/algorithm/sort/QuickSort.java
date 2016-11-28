@@ -2,7 +2,7 @@ package algorithm.sort;
 
 import java.util.Arrays;
 
-public class MyQuickSort {
+public class QuickSort {
 	private static int[] numbers = {34,5,76,2,86,3,44684,2,1,12,45};
     private static int size;
 
