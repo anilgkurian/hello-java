@@ -1,25 +1,14 @@
 package datastructure.tree;
 
 public class TreeLevelTraversal {
-	// Root of the Binary Tree
-	TreeNode root;
 
-	public TreeLevelTraversal() {
-		root = null;
-	}
-
-	/* function to print level order traversal of tree */
-	void printLevelOrder() {
+	void printLevelOrder(TreeNode root) {
 		int h = height(root);
 		int i;
 		for (i = 1; i <= h; i++)
 			printGivenLevel(root, i);
 	}
 
-	/*
-	 * Compute the "height" of a tree -- the number of nodes along the longest
-	 * path from the root node down to the farthest leaf node.
-	 */
 	int height(TreeNode node) {
 		if (node == null)
 			return 0;
@@ -48,16 +37,11 @@ public class TreeLevelTraversal {
 		}
 	}
 
-	/* Driver program to test above functions */
 	public static void main(String args[]) {
-		TreeLevelTraversal tree = new TreeLevelTraversal();
-		tree.root = new TreeNode(1);
-		tree.root.left = new TreeNode(2);
-		tree.root.right = new TreeNode(3);
-		tree.root.left.left = new TreeNode(4);
-		tree.root.left.right = new TreeNode(5);
+		TreeNode tree = TreeSamples.getBinaryTree();
 
+		TreeLevelTraversal ob = new TreeLevelTraversal();
 		System.out.println("Level order traversal of binary tree is ");
-		tree.printLevelOrder();
+		ob.printLevelOrder(tree);
 	}
 }

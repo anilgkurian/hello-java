@@ -1,7 +1,7 @@
 package datastructure.tree;
 
 public class TreeSum {
-	
+
 	void postorder(TreeNode node, int total) {
 
 		if (node == null) {
@@ -49,30 +49,24 @@ public class TreeSum {
 
 		preorder(node.right, total);
 	}
-	
+
 	boolean isLeafNode(TreeNode node) {
 		return node.right == null && node.left == null;
 	}
 
 	public static void main(String... strings) {
-		
-		TreeNode tree = new TreeNode(1);
-		tree.left = new TreeNode(2);
-		tree.right = new TreeNode(3);
-		tree.left.left = new TreeNode(4);
-		tree.left.left.left = new TreeNode(6);
-		tree.left.right = new TreeNode(5);
+
+		TreeNode tree = TreeSamples.getBinaryTree();
 
 		TreeSum ob = new TreeSum();
-		System.out.println("POST");
+		System.out.println(" POST");
 		ob.postorder(tree, 0);
-		
-		System.out.println("IN");
-		ob.inorder(tree,0);
-		
-		System.out.println("PRE");
-		ob.preorder(tree,0);
+
+		System.out.println("\n IN");
+		ob.inorder(tree, 0);
+
+		System.out.println("\n PRE");
+		ob.preorder(tree, 0);
 	}
-	
-	
+
 }

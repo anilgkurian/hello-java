@@ -4,18 +4,16 @@ public class TreeTraversal {
 
 	public static void main(String... strings) {
 		
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
+		TreeNode tree = TreeSamples.getBinaryTree();
 
 		TreeTraversal ob = new TreeTraversal();
-		ob.printPostorder(root);
+		ob.printPostorder(tree);
+		
 		System.out.println();
-		ob.printInorder(root);
+		ob.printInorder(tree);
+		
 		System.out.println();
-		ob.printPreorder(root);
+		ob.printPreorder(tree);
 	}
 
 	void printPostorder(TreeNode node) {

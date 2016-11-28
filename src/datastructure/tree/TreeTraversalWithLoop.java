@@ -3,14 +3,10 @@ package datastructure.tree;
 public class TreeTraversalWithLoop {
 
 	public static void main(String... strings) {
-		TreeNode root = new TreeNode(1);
-		root.left = new TreeNode(2);
-		root.right = new TreeNode(3);
-		root.left.left = new TreeNode(4);
-		root.left.right = new TreeNode(5);
+		TreeNode tree = TreeSamples.getBinaryTree();
 
 		TreeTraversalWithLoop ob = new TreeTraversalWithLoop();
-		ob.printPostorder(root);
+		ob.printPostorder(tree);
 		System.out.println();
 	}
 
