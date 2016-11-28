@@ -1,2 +1,2 @@
 # hello-world
-First repo
+Sample Java programs
