@@ -1,7 +1,7 @@
 # hello-world
 Sample Java programs
 * [algorithm](src/algorithm)
-* [collections](src/collections)
+* [data-structure](src/datastructure)
 * [concurrency](src/concurrency)
 * [games](src/games)
 * [string](src/string)
