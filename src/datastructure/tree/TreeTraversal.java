@@ -5,7 +5,7 @@ public class TreeTraversal {
 	public static void main(String... strings) {
 		
 		TreeNode tree = TreeSamples.getBinaryTree();
-
+		
 		TreeTraversal ob = new TreeTraversal();
 		System.out.print("\nPost \t");
 		ob.printPostorder(tree);

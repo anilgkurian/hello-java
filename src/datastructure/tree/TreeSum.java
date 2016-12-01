@@ -10,7 +10,7 @@ public class TreeSum {
 
 		total = total + node.val;
 		if (isLeafNode(node))
-			System.out.println(total);
+			System.out.print(total+",");
 
 		postorder(node.left, total);
 
@@ -29,7 +29,7 @@ public class TreeSum {
 		inorder(node.left, total);
 
 		if (isLeafNode(node))
-			System.out.println(total);
+			System.out.print(total+",");
 
 		inorder(node.right, total);
 	}
@@ -43,7 +43,7 @@ public class TreeSum {
 		total = total + node.val;
 
 		if (isLeafNode(node))
-			System.out.println(total);
+			System.out.print(total+",");
 
 		preorder(node.left, total);
 
