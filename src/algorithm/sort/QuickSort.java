@@ -8,7 +8,7 @@ public class QuickSort {
 
     public static void main(String... args) {
             size = numbers.length;
-            quicksort(0, size - 1);
+             quicksort(0, size - 1);
             
             System.out.println(Arrays.toString(numbers));
     }

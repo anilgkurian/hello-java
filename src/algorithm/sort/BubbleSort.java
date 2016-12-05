@@ -14,7 +14,7 @@ public class BubbleSort {
     private static void bubbleSort(int[] numbers) {
     
     	boolean swapped = false;
-    	
+
     	do{
     		swapped = false;
 	    	for(int i=0;i<numbers.length-1;i++) {
