@@ -8,3 +8,6 @@ Sample Java programs
 * [jms](src/jms)
 * [oop](src/oop)
 * [patterns](src/patterns)
+ * [observer](src/patterns/observer)
+* [problems](src/problems)
+ * [number converter](src/problems/numberConverter)
