@@ -1,4 +1,4 @@
-package concurrency.callable;
+package concurrency.futureTask;
 
 import java.util.Collection;
 import java.util.List;
@@ -9,41 +9,54 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class MyExecutor<V> implements ExecutorService{
+/**
+ * @author Anil Kurian 
+ * Submitted task will be running in a new thread
+ * @param <V>
+ */
+public class MyExecutor<V> implements ExecutorService {
 
 	@Override
-	public void execute(Runnable arg0) {
-		// TODO Auto-generated method stub
-		
+	public <T> Future<T> submit(final Callable<T> task) {
+		final MyFutureTask<T> future = new MyFutureTask<>(task);
+		new Thread(future).start();
+		return future;
 	}
 
 	@Override
-	public boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException {
+	public void execute(final Runnable arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean awaitTermination(final long timeout, final TimeUnit unit) throws InterruptedException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks) throws InterruptedException {
+	public <T> List<Future<T>> invokeAll(final Collection<? extends Callable<T>> tasks) throws InterruptedException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit)
-			throws InterruptedException {
+	public <T> List<Future<T>> invokeAll(final Collection<? extends Callable<T>> tasks, final long timeout,
+			final TimeUnit unit) throws InterruptedException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <T> T invokeAny(Collection<? extends Callable<T>> tasks) throws InterruptedException, ExecutionException {
+	public <T> T invokeAny(final Collection<? extends Callable<T>> tasks)
+			throws InterruptedException, ExecutionException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <T> T invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit)
+	public <T> T invokeAny(final Collection<? extends Callable<T>> tasks, final long timeout, final TimeUnit unit)
 			throws InterruptedException, ExecutionException, TimeoutException {
 		// TODO Auto-generated method stub
 		return null;
@@ -64,7 +77,7 @@ public class MyExecutor<V> implements ExecutorService{
 	@Override
 	public void shutdown() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -74,23 +87,15 @@ public class MyExecutor<V> implements ExecutorService{
 	}
 
 	@Override
-	public <T> Future<T> submit(Callable<T> task) {
-		MyFutureTask<T> future = new MyFutureTask<>(task) ;
-		Thread t = new Thread(future);
-		t.start();
-		return future;
-	}
-
-	@Override
-	public Future<?> submit(Runnable task) {
+	public Future<?> submit(final Runnable task) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <T> Future<T> submit(Runnable task, T result) {
+	public <T> Future<T> submit(final Runnable task, final T result) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

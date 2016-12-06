@@ -11,53 +11,58 @@ import java.util.concurrent.Future;
 
 public class InvokeAllCallablesWithPool {
 
-	private static ExecutorService pool = Executors.newFixedThreadPool(3);
-	
-	public static void main(String...strings ) {
-		Collection<Callable<String>> tasks = new ArrayList<Callable<String>>();
-		for(int i=0;i<3;i++) {
-			tasks.add(new Task("T "+i));
+	private static final int POOL_SIZE = 10;
+
+	private static final int TASK_SIZE = 50;
+
+	private static ExecutorService pool = Executors.newFixedThreadPool(POOL_SIZE);
+
+	public static void main(final String... strings) {
+		final Collection<Callable<String>> tasks = new ArrayList<Callable<String>>();
+		for (int i = 1; i < TASK_SIZE; i++) {
+			tasks.add(new Task("Task " + i));
 		}
 		try {
-			
-			List<Future<String>> invokeAll = pool.invokeAll(tasks);
+
+			final List<Future<String>> invokeAll = pool.invokeAll(tasks);
 			System.out.println("Main is done");
-			
-			for(Future<String> future : invokeAll) {
+
+			for (final Future<String> future : invokeAll) {
 				try {
-					System.out.println(future.get());
-				} catch (ExecutionException e) {
+					if (future.isDone()) {
+						System.out.println("Got result of " + future.get());
+					}
+				} catch (final ExecutionException e) {
 					e.printStackTrace();
 				}
 			}
-			
-		} catch (InterruptedException e) {
-			e.printStackTrace(); 
+
+		} catch (final InterruptedException e) {
+			e.printStackTrace();
 		}
 		pool.shutdown();
 
 	}
-	
-	private static class Task implements Callable<String>{
-		
-		private String name;
-		
-		public Task(String name) {
+
+	private static class Task implements Callable<String> {
+
+		private final String name;
+
+		public Task(final String name) {
 			this.name = name;
 		}
 
 		@Override
 		public String call() throws Exception {
-			System.out.println(name+ " is running");
+			System.out.println(name + " is running");
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			} catch (final InterruptedException e) {
 				e.printStackTrace();
 			}
 			System.out.println(name + " is done");
 			return name;
 		}
 
-		
 	}
 }

@@ -1,4 +1,4 @@
-package concurrency.callable;
+package concurrency.futureTask;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -6,20 +6,26 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class MyFutureTask<V> implements Future<V>, Runnable{
+/**
+ * @author Anil Kurian 
+ * Executes the call() of the callable and blocks get() till
+ *         its done
+ * @param <V>
+ */
+public class MyFutureTask<V> implements Future<V>, Runnable {
 
 	private V result;
-	
-	private Callable<V> callable;
-	
+
+	private final Callable<V> callable;
+
 	private Boolean isDone = false;
-	
-	private Object lock = new Object();
-	
-	public MyFutureTask(Callable<V> callable) {
+
+	private final Object lock = new Object();
+
+	public MyFutureTask(final Callable<V> callable) {
 		this.callable = callable;
 	}
-	
+
 	@Override
 	public void run() {
 		try {
@@ -28,15 +34,15 @@ public class MyFutureTask<V> implements Future<V>, Runnable{
 				isDone = true;
 				lock.notifyAll();
 			}
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public boolean cancel(boolean mayInterruptIfRunning) {
-		if(mayInterruptIfRunning){
-			
+	public boolean cancel(final boolean mayInterruptIfRunning) {
+		if (mayInterruptIfRunning) {
+
 		}
 		return false;
 	}
@@ -44,7 +50,7 @@ public class MyFutureTask<V> implements Future<V>, Runnable{
 	@Override
 	public V get() throws InterruptedException, ExecutionException {
 		synchronized (lock) {
-			while(!isDone) {
+			while (!isDone) {
 				lock.wait();
 			}
 		}
@@ -52,7 +58,8 @@ public class MyFutureTask<V> implements Future<V>, Runnable{
 	}
 
 	@Override
-	public V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+	public V get(final long timeout, final TimeUnit unit)
+			throws InterruptedException, ExecutionException, TimeoutException {
 		return null;
 	}
 
@@ -67,5 +74,5 @@ public class MyFutureTask<V> implements Future<V>, Runnable{
 			return isDone;
 		}
 	}
-	
+
 }
