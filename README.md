@@ -10,4 +10,4 @@ Sample Java programs
 * [patterns](src/patterns)
  * [observer](src/patterns/observer)
 * [problems](src/problems)
- * [number converter](src/problems/numberConverter)
+ * [number converter](src/problems/numberConverter) : converts numbers in digits to words
