@@ -8,24 +8,26 @@ public class SubmittingRunnableReturnNull {
 
 	private static ExecutorService pool = Executors.newFixedThreadPool(3);
 
-	public static void main(String... strings) {
-		Future<?> submit = pool.submit(new Task());
+	public static void main(final String... strings) {
+
+		final Future<?> submit = pool.submit(new RunnableObj());
 		try {
 			System.out.println("Result is " + submit.get());
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 
+		pool.shutdownNow();
 	}
 
-	private static class Task implements Runnable {
+	private static class RunnableObj implements Runnable {
 
 		@Override
 		public void run() {
 			System.out.println("Task running");
 			try {
 				Thread.sleep(2000);
-			} catch (InterruptedException e) {
+			} catch (final InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
