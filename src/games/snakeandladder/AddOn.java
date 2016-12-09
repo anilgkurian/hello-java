@@ -1,13 +1,19 @@
 package games.snakeandladder;
 
-public class Ladder {
+/**
+ * Represents a Snake or a Ladder which has a head and tail position.
+ *
+ * @author Anil Kurian
+ *
+ */
+// TODO: a better name
+public class AddOn {
 
 	private Node headPosition;
-	
+
 	private Node tailPosition;
 
-	public Ladder(Node headPosition, Node tailPosition) {
-		super();
+	public AddOn(final Node headPosition, final Node tailPosition) {
 		this.headPosition = headPosition;
 		this.tailPosition = tailPosition;
 	}
@@ -16,7 +22,7 @@ public class Ladder {
 		return headPosition;
 	}
 
-	public void setHeadPosition(Node headPosition) {
+	public void setHeadPosition(final Node headPosition) {
 		this.headPosition = headPosition;
 	}
 
@@ -24,7 +30,7 @@ public class Ladder {
 		return tailPosition;
 	}
 
-	public void setTailPosition(Node tailPosition) {
+	public void setTailPosition(final Node tailPosition) {
 		this.tailPosition = tailPosition;
 	}
 }

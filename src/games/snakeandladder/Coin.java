@@ -1,22 +1,27 @@
 package games.snakeandladder;
 
-public class Coin implements Comparable<Coin>{
+/**
+ * Represents a coin/player with its current position
+ *
+ * @author Anil Kurian
+ *
+ */
+public class Coin implements Comparable<Coin> {
 
 	private String player;
-	
+
 	private int moves;
 
 	private int snakeBites;
-	
+
 	private int ladderChances;
-	
+
 	private Node position;
-	
-	
+
 	public void incrementMoves() {
 		moves++;
 	}
-	
+
 	public void snakeBite() {
 		snakeBites++;
 	}
@@ -24,11 +29,12 @@ public class Coin implements Comparable<Coin>{
 	public void ladderChance() {
 		ladderChances++;
 	}
+
 	public Node getPosition() {
 		return position;
 	}
 
-	public void setPosition(Node position) {
+	public void setPosition(final Node position) {
 		this.position = position;
 	}
 
@@ -36,11 +42,11 @@ public class Coin implements Comparable<Coin>{
 		return player;
 	}
 
-	public void setPlayer(String player) {
+	public void setPlayer(final String player) {
 		this.player = player;
 	}
 
-	public Coin(Node position, String player) {
+	public Coin(final Node position, final String player) {
 		super();
 		this.position = position;
 		this.player = player;
@@ -48,19 +54,19 @@ public class Coin implements Comparable<Coin>{
 
 	@Override
 	public String toString() {
-		return  player + ":\t moves=" + moves+ ",\t snake bites=" + snakeBites+ ",\t ladders=" + ladderChances;
+		return player + ":\t moves=" + moves + ",\t snake bites=" + snakeBites + ",\t ladders=" + ladderChances;
 	}
 
 	public int getMoves() {
 		return moves;
 	}
 
-	public void setMoves(int moves) {
+	public void setMoves(final int moves) {
 		this.moves = moves;
 	}
 
 	@Override
-	public int compareTo(Coin o) {
+	public int compareTo(final Coin o) {
 		return moves = o.getMoves();
 	}
 
@@ -68,7 +74,7 @@ public class Coin implements Comparable<Coin>{
 		return snakeBites;
 	}
 
-	public void setSnakeBites(int snakeBites) {
+	public void setSnakeBites(final int snakeBites) {
 		this.snakeBites = snakeBites;
 	}
 
@@ -76,7 +82,7 @@ public class Coin implements Comparable<Coin>{
 		return ladderChances;
 	}
 
-	public void setLadderChances(int ladderChances) {
+	public void setLadderChances(final int ladderChances) {
 		this.ladderChances = ladderChances;
 	}
 }
