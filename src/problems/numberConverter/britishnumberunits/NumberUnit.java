@@ -2,6 +2,10 @@ package problems.numberConverter.britishnumberunits;
 
 import problems.numberConverter.common.InvalidNumberException;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public interface NumberUnit {
 
 	/**
@@ -12,7 +16,7 @@ public interface NumberUnit {
 
 	/**
 	 * Add a new number to the next digit on the object
-	 * 
+	 *
 	 * @param number
 	 */
 	abstract public void addNumber(int number);

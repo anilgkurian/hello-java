@@ -2,6 +2,10 @@ package problems.numberConverter.britishnumberunits;
 
 import problems.numberConverter.common.InvalidNumberException;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class Million extends AbstractNumberUnit {
 
 	public Million(final int power) {
@@ -10,14 +14,14 @@ public class Million extends AbstractNumberUnit {
 
 	@Override
 	public String getString() throws InvalidNumberException {
-		if (this.number == 0) {
+		if (number == 0) {
 			return null;
 		}
-		return AbstractNumberUnit.getStringForNumber(this.number) + " million";
+		return AbstractNumberUnit.getStringForNumber(number) + " million";
 	}
 
 	@Override
 	public String toString() {
-		return this.number + " million ";
+		return number + " million ";
 	}
 }

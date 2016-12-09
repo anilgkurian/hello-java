@@ -2,6 +2,10 @@ package problems.numberConverter.britishnumberunits;
 
 import problems.numberConverter.common.InvalidNumberException;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class Thousand extends AbstractNumberUnit {
 
 	public Thousand(final int number) {
@@ -10,15 +14,15 @@ public class Thousand extends AbstractNumberUnit {
 
 	@Override
 	public String getString() throws InvalidNumberException {
-		if (this.number == 0) {
+		if (number == 0) {
 			return null;
 		}
-		return AbstractNumberUnit.getStringForNumber(this.number) + " thousand";
+		return AbstractNumberUnit.getStringForNumber(number) + " thousand";
 	}
 
 	@Override
 	public String toString() {
-		return this.number + " thousand ";
+		return number + " thousand ";
 	}
 
 }

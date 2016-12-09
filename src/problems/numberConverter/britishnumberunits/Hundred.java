@@ -2,6 +2,10 @@ package problems.numberConverter.britishnumberunits;
 
 import problems.numberConverter.common.InvalidNumberException;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class Hundred extends AbstractNumberUnit {
 
 	public Hundred(final int number) {
@@ -10,14 +14,14 @@ public class Hundred extends AbstractNumberUnit {
 
 	@Override
 	public String getString() throws InvalidNumberException {
-		if (this.number == 0) {
+		if (number == 0) {
 			return null;
 		}
-		return AbstractNumberUnit.getStringForNumber(this.number) + " hundred";
+		return AbstractNumberUnit.getStringForNumber(number) + " hundred";
 	}
 
 	@Override
 	public String toString() {
-		return this.number + " hundred ";
+		return number + " hundred ";
 	}
 }

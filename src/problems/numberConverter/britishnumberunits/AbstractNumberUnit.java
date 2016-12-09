@@ -7,6 +7,10 @@ import java.util.List;
 import problems.numberConverter.common.InvalidNumberException;
 import problems.numberConverter.common.StringUtilities;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public abstract class AbstractNumberUnit implements NumberUnit {
 
 	/**
@@ -29,9 +33,9 @@ public abstract class AbstractNumberUnit implements NumberUnit {
 
 	@Override
 	public void addNumber(final int number) {
-		final double powerOfNumber = Math.pow(10, this.tenPower);
+		final double powerOfNumber = Math.pow(10, tenPower);
 		this.number = (int) (this.number + (powerOfNumber * number));
-		this.tenPower++;
+		tenPower++;
 	}
 
 	@Override
@@ -39,7 +43,7 @@ public abstract class AbstractNumberUnit implements NumberUnit {
 
 	/**
 	 * Single string representation for a number belongs to one number unit
-	 * 
+	 *
 	 * @param number
 	 * @return
 	 * @throws InvalidNumberException

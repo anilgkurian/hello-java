@@ -7,6 +7,9 @@ import problems.numberConverter.common.InvalidNumberException;
 
 /**
  * One, teens & tens
+ * 
+ * @author Anil Kurian
+ *
  */
 public class Ten extends AbstractNumberUnit {
 
@@ -18,9 +21,9 @@ public class Ten extends AbstractNumberUnit {
 
 	@Override
 	public String getString() throws InvalidNumberException {
-		String string = numberStrings.get(this.number);
+		String string = numberStrings.get(number);
 		if (string == null) {
-			string = AbstractNumberUnit.getStringForNumber(this.number);
+			string = AbstractNumberUnit.getStringForNumber(number);
 		}
 		return string;
 	}
@@ -62,7 +65,7 @@ public class Ten extends AbstractNumberUnit {
 
 	@Override
 	public String toString() {
-		return this.number + " tens ";
+		return number + " tens ";
 	}
 
 }

@@ -13,6 +13,10 @@ import problems.numberConverter.britishnumberunits.Ten;
 import problems.numberConverter.britishnumberunits.Thousand;
 import problems.numberConverter.common.InvalidNumberException;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class NumberConverter {
 
 	/**
@@ -37,7 +41,7 @@ public class NumberConverter {
 	private final Map<NumberUnitsFactory.Type, NumberUnit> fullNumberUnits = new LinkedHashMap<NumberUnitsFactory.Type, NumberUnit>();
 
 	public NumberConverter(final String number) {
-		this.numberString = number.trim();
+		numberString = number.trim();
 	}
 
 	/**
@@ -48,30 +52,30 @@ public class NumberConverter {
 	 */
 	public String convertNumberToString() throws InvalidNumberException {
 
-		if (this.isZero()) {
+		if (isZero()) {
 			return "zero";
 		}
 
-		this.number = Integer.parseInt(this.numberString);
+		number = Integer.parseInt(numberString);
 
-		final String tens = this.checkForTens();
+		final String tens = checkForTens();
 		if (tens != null) {
 			return tens;
 		}
 
 		int digitPosition = 1;
-		int remainingDigits = this.number;
+		int remainingDigits = number;
 
 		while (remainingDigits != 0) {
 			final int currentDigit = remainingDigits % 10;
-			this.createNumberUnit(digitPosition, currentDigit);
+			createNumberUnit(digitPosition, currentDigit);
 			remainingDigits = remainingDigits / 10;
 			digitPosition++;
 		}
 
-		this.createResult();
+		createResult();
 
-		return this.result.toString().trim();
+		return result.toString().trim();
 	}
 
 	/**
@@ -89,10 +93,10 @@ public class NumberConverter {
 			throw new InvalidNumberException("I dont support a number with " + digitPosition + " digits");
 		}
 
-		NumberUnit numberUnit = this.fullNumberUnits.get(type);
+		NumberUnit numberUnit = fullNumberUnits.get(type);
 		if (numberUnit == null) {
 			numberUnit = NumberUnitsFactory.getNumberUnit(currentDigit, digitPosition);
-			this.fullNumberUnits.put(type, numberUnit);
+			fullNumberUnits.put(type, numberUnit);
 		} else {
 			numberUnit.addNumber(currentDigit);
 		}
@@ -105,17 +109,17 @@ public class NumberConverter {
 	 */
 	private void createResult() throws InvalidNumberException {
 
-		final Collection<NumberUnit> values = this.fullNumberUnits.values();
+		final Collection<NumberUnit> values = fullNumberUnits.values();
 
 		final NumberUnit[] numberUnits = values.toArray(new NumberUnit[values.size()]);
 
 		for (int i = numberUnits.length - 1; i >= 0; i--) {
 			final String numberRepresentation = numberUnits[i].getString();
 			if (numberRepresentation != null) {
-				if (this.isANDrequired(numberUnits, i)) {
-					this.result = this.result.append(numberRepresentation + " and ");
+				if (isANDrequired(numberUnits, i)) {
+					result = result.append(numberRepresentation + " and ");
 				} else {
-					this.result = this.result.append(numberRepresentation + " ");
+					result = result.append(numberRepresentation + " ");
 				}
 			}
 		}
@@ -132,8 +136,8 @@ public class NumberConverter {
 	 * @throws InvalidNumberException
 	 */
 	private boolean isANDrequired(final NumberUnit[] numberUnits, final int currentPos) throws InvalidNumberException {
-		return this.isNextToHundred(numberUnits, currentPos) || this.isTensAfterMillion(numberUnits, currentPos)
-				|| this.isTensAfterThousand(numberUnits, currentPos);
+		return isNextToHundred(numberUnits, currentPos) || isTensAfterMillion(numberUnits, currentPos)
+				|| isTensAfterThousand(numberUnits, currentPos);
 
 	}
 
@@ -169,11 +173,11 @@ public class NumberConverter {
 	}
 
 	private boolean isZero() {
-		return this.numberString.equals("0");
+		return numberString.equals("0");
 	}
 
 	private String checkForTens() {
-		return Ten.getNumberString(this.number);
+		return Ten.getNumberString(number);
 	}
 
 }
