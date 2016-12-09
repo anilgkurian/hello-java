@@ -1,5 +1,12 @@
 package datastructure.list;
 
+/**
+ *
+ * Represents a node in a Linked List
+ * 
+ * @author Anil Kurian
+ *
+ */
 public class Node {
 
 	public int data;
