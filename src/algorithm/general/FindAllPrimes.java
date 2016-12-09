@@ -1,5 +1,9 @@
 package algorithm.general;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class FindAllPrimes {
 
 	public static void main(final String[] args) {
