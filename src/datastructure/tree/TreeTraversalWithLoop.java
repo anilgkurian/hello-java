@@ -1,25 +1,21 @@
 package datastructure.tree;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class TreeTraversalWithLoop {
 
-	public static void main(String... strings) {
-		TreeNode tree = TreeSamples.getBinaryTree();
-
-		TreeTraversalWithLoop ob = new TreeTraversalWithLoop();
-		ob.printPostorder(tree);
-		System.out.println();
-	}
-
-	void printPostorder(TreeNode node) {
-		if (node == null)
+	void printPostorder(final TreeNode node) {
+		if (node == null) {
 			return;
+		}
 
 		TreeNode tempL = node.left;
 		while (tempL != null) {
 
 			TreeNode tempR = tempL.right;
 			while (tempR != null) {
-
 				tempR = tempR.right;
 			}
 			tempL = tempL.left;
@@ -29,6 +25,14 @@ public class TreeTraversalWithLoop {
 		printPostorder(node.right);
 
 		System.out.print(node.val + " ");
+	}
+
+	public static void main(final String... strings) {
+		final TreeNode tree = TreeSamples.getBinaryTree();
+
+		final TreeTraversalWithLoop ob = new TreeTraversalWithLoop();
+		ob.printPostorder(tree);
+		System.out.println();
 	}
 
 }
