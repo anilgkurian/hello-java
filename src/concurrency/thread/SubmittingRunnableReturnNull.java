@@ -4,6 +4,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class SubmittingRunnableReturnNull {
 
 	private static ExecutorService pool = Executors.newFixedThreadPool(3);
@@ -28,7 +32,6 @@ public class SubmittingRunnableReturnNull {
 			try {
 				Thread.sleep(2000);
 			} catch (final InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

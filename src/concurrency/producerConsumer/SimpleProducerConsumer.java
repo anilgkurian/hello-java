@@ -3,9 +3,13 @@ package concurrency.producerConsumer;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class SimpleProducerConsumer {
 
-	static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
+	private static BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
 	public static void main(final String[] ar) {
 		final Producer producer = new Producer(queue);

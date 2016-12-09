@@ -3,6 +3,10 @@ package concurrency.thread;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class RunningCallableUsingThread {
 
 	public static void main(final String... strings) {

@@ -9,6 +9,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * @author Anil Kurian
+ *
+ */
 public class InvokeAllCallablesWithPool {
 
 	private static final int POOL_SIZE = 10;
