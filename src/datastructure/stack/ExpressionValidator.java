@@ -6,41 +6,47 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class BraceValidator {
+/**
+ *
+ * Validates the given expression for open and closed braces.
+ *
+ * @author Anil Kurian
+ *
+ */
+public class ExpressionValidator {
 
-	private static List<String> inputs = new ArrayList<String>();
+	private static List<String> testInputs = new ArrayList<String>();
 
 	static Map<String, String> pairs = new HashMap<String, String>();
 
 	static {
-		inputs.add("{{[]}}");
-		inputs.add("{[()]}");
-		inputs.add("{[]}}");
-		inputs.add("{[][");
-		inputs.add("}{");
+		testInputs.add("{{[]}}");
+		testInputs.add("{[()]}");
+		testInputs.add("{[]}}");
+		testInputs.add("{[][");
+		testInputs.add("}{");
 	}
 
 	static {
 		pairs.put("{", "}");
 		pairs.put("[", "]");
 		pairs.put("(", ")");
-
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 
-		for (String input : inputs) {
+		for (final String input : testInputs) {
 			verify(input);
 		}
 	}
 
-	private static void verify(String input) {
-		LinkedList<String> stack = new LinkedList<String>();
-		for (String symbol : input.split("")) {
+	private static void verify(final String input) {
+		final LinkedList<String> stack = new LinkedList<String>();
+		for (final String symbol : input.split("")) {
 			if (isOpenSymbol(symbol)) {
 				stack.push(symbol);
 			} else if (isCloseSymbol(symbol)) {
-				String lastSymbol = stack.peek();
+				final String lastSymbol = stack.peek();
 				if (isPair(symbol, lastSymbol)) {
 					stack.pop();
 				} else {
@@ -58,15 +64,15 @@ public class BraceValidator {
 		}
 	}
 
-	private static boolean isPair(String symbol, String lastSymbol) {
+	private static boolean isPair(final String symbol, final String lastSymbol) {
 		return symbol.equals(pairs.get(lastSymbol));
 	}
 
-	private static boolean isCloseSymbol(String symbol) {
+	private static boolean isCloseSymbol(final String symbol) {
 		return pairs.containsValue(symbol);
 	}
 
-	private static boolean isOpenSymbol(String symbol) {
+	private static boolean isOpenSymbol(final String symbol) {
 		return pairs.containsKey(symbol);
 	}
 }
