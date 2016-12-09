@@ -1,5 +1,9 @@
 package datastructure.array;
 
+/**
+ * @author Anil Kurian
+ * Find index of a substring
+ */
 public class WordIndex {
 
 	private static String input = "anil g my test string";

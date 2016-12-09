@@ -1,43 +1,49 @@
 package datastructure.array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Anil Kurian
+ * Splits the given string into words from dictionary 
+ */
 public class WordSplitWithDict {
 
-    private static final String[] dict = {"i","like","the","blue","sky"};
+	private static final String[] dict = { "i", "like", "the", "blue", "sky" };
 
-    public static void main(String[] args) {
+	public static void main(final String[] args) {
 
-        Arrays.parallelSort(dict);
-        List<String> splitWords = splitWord("ilikethebluesky");
-        System.out.println(splitWords.toString());
+		Arrays.parallelSort(dict);
+		final List<String> splitWords = splitWord("ilikethebluesky");
+		System.out.println(splitWords.toString());
 
-    }
+	}
 
-    private static boolean doesWordExist(String[] dict, String key){
-        int index = 0;
+	private static boolean doesWordExist(final String[] dict, final String key) {
+		int index = 0;
 
-        index = Arrays.binarySearch(dict, key.toLowerCase());	// best since dict is sorted
-        if(index>= 0) {
-            return true;
-        }
-        return false;
-    }
+		index = Arrays.binarySearch(dict, key.toLowerCase()); // best since dict
+																// is sorted
+		if (index >= 0) {
+			return true;
+		}
+		return false;
+	}
 
-    private static List<String> splitWord(String phrase) {
-        char[] cArray = phrase.toCharArray();
-        String word = "";
-        List<String> splitwords = new ArrayList<String>();
+	private static List<String> splitWord(final String phrase) {
+		final char[] cArray = phrase.toCharArray();
+		String word = "";
+		final List<String> splitwords = new ArrayList<String>();
 
-        for(int i=0; i< cArray.length; i++){
-            word+=cArray[i];
-            if(doesWordExist(dict, word)) {
-                splitwords.add(word);
-                word = "";
-            }
-        }
-        return splitwords;
-    }
+		for (final char element : cArray) {
+			word += element;
+			if (doesWordExist(dict, word)) {
+				splitwords.add(word);
+				word = "";
+			}
+		}
+		return splitwords;
+	}
 
 }
