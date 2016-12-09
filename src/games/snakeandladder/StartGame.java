@@ -9,6 +9,8 @@ public class StartGame {
 		final Board board = new Board().addPlayer("Anil").addPlayer("Sarah").addPlayer("Lima").addPlayer("Leon");
 		addSnakesAndLaddersInBoard(board);
 
+		final Game game = new Game(board);
+
 		final List<Coin> coins = board.getCoins();
 
 		int i = 0;
@@ -18,7 +20,7 @@ public class StartGame {
 			final Coin coin = coins.get(i);
 			if (coin.getPosition().getNumber() != 100) {
 				final int flip = Dice.flip();
-				gameOn = board.move(coin, flip);
+				gameOn = game.move(coin, flip);
 			}
 			i++;
 			i = i >= coins.size() ? 0 : i;
