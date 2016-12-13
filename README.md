@@ -4,6 +4,7 @@ Sample Java programs
 * [data-structure](src/main/java/datastructure)
 * [concurrency](src/main/java/concurrency)
 * [games](src/main/java/games)
+ * [Snake and Ladder](src/main/java/games/snakeandladder)
 * [string](src/main/java/string)
 * [jms](src/main/java/jms)
 * [oop](src/main/java/oop)
