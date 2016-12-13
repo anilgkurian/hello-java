@@ -1,13 +1,13 @@
 # hello-world
 Sample Java programs
-* [algorithm](src/algorithm)
-* [data-structure](src/datastructure)
-* [concurrency](src/concurrency)
-* [games](src/games)
-* [string](src/string)
-* [jms](src/jms)
-* [oop](src/oop)
-* [patterns](src/patterns)
- * [observer](src/patterns/observer)
-* [problems](src/problems)
- * [number converter](src/problems/numberConverter) : converts numbers in digits to words
+* [algorithm](src/main/java/algorithm)
+* [data-structure](src/main/java/datastructure)
+* [concurrency](src/main/java/concurrency)
+* [games](src/main/java/games)
+* [string](src/main/java/string)
+* [jms](src/main/java/jms)
+* [oop](src/main/java/oop)
+* [patterns](src/main/java/patterns)
+ * [observer](src/main/java/patterns/observer)
+* [problems](src/main/java/problems)
+ * [number converter](src/main/java/problems/numberConverter) : converts numbers in digits to words
