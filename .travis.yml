@@ -1,10 +1,17 @@
+sudo: false
+
 language: java
 
-sudo: false
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
-      
 jdk:
   - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+
+install: mvn -B install -U -DskipTests=true
+
+script: mvn -B verify -U -Dmaven.javadoc.skip=true
+
+branches:
+  only:
+    - master
+- /^release.*$/
