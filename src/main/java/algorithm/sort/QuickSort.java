@@ -3,6 +3,9 @@ package algorithm.sort;
 import java.util.Arrays;
 
 /**
+ * Picking a pivot and keeping smaller elements on left & greater on right. O(n
+ * log n)
+ *
  * @author Anil Kurian
  *
  */

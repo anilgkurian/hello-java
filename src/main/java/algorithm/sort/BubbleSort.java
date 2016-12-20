@@ -3,8 +3,9 @@ package algorithm.sort;
 import java.util.Arrays;
 
 /**
+ * Keep swapping all elements till no more swapping is required. O(n2)
+ * 
  * @author Anil Kurian
- *
  */
 public class BubbleSort {
 	private static int[] input = { 34, 5, 76, 2, 86, 3, 44684, 2, 1, 12, 45 };
