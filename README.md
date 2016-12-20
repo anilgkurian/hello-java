@@ -1,5 +1,10 @@
 # hello-world
 [![Build Status](https://travis-ci.org/anilgkurian/hello-world.svg?branch=master)](https://travis-ci.org/anilgkurian/hello-world)
+<a href="https://scan.coverity.com/projects/anilgkurian-hello-world">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/11224/badge.svg"/>
+</a>
+
 
 Common Java programs
 * [algorithm](src/main/java/algorithm)
