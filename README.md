@@ -1,7 +1,7 @@
 # hello-world
 [![Build Status](https://travis-ci.org/anilgkurian/hello-world.svg?branch=master)](https://travis-ci.org/anilgkurian/hello-world)
 
-Sample Java programs
+Common Java programs
 * [algorithm](src/main/java/algorithm)
 * [data-structure](src/main/java/datastructure)
  * [array](src/main/java/datastructure/array)
