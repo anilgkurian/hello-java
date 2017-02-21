@@ -26,3 +26,5 @@ Common Java programs
  * [observer](src/main/java/patterns/observer)
 * [problems](src/main/java/problems)
  * [number converter](src/main/java/problems/numberConverter) : converts numbers in digits to words
+
+Pull requests are welcome
