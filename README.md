@@ -27,4 +27,4 @@ Common Java programs
 * [problems](src/main/java/problems)
  * [number converter](src/main/java/problems/numberConverter) : converts numbers in digits to words
 
-Pull requests are welcome
+All Pull requests are welcome
